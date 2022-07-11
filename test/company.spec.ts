@@ -7,6 +7,7 @@ const seededRuns = [
     expectations: {
       suffixes: ['Inc', 'and Sons', 'LLC', 'Group'],
       companyName: 'Schinner - Wiegand',
+      name: 'Schinner - Wiegand',
       companySuffix: 'and Sons',
       catchPhrase: 'Implemented responsive throughput',
       bs: 'seize impactful web services',
@@ -23,6 +24,7 @@ const seededRuns = [
     expectations: {
       suffixes: ['Inc', 'and Sons', 'LLC', 'Group'],
       companyName: 'Macejkovic Inc',
+      name: 'Macejkovic Inc',
       companySuffix: 'and Sons',
       catchPhrase: 'Expanded leading edge capacity',
       bs: 'incentivize efficient initiatives',
@@ -39,6 +41,7 @@ const seededRuns = [
     expectations: {
       suffixes: ['Inc', 'and Sons', 'LLC', 'Group'],
       companyName: 'Koch, Trantow and Sanford',
+      name: 'Koch, Trantow and Sanford',
       companySuffix: 'Group',
       catchPhrase: 'Up-sized high-level success',
       bs: 'cultivate bleeding-edge functionalities',
@@ -57,6 +60,7 @@ const NON_SEEDED_BASED_RUN = 5;
 const functionNames = [
   'suffixes',
   'companyName',
+  'name',
   'companySuffix',
   'catchPhrase',
   'bs',
@@ -96,6 +100,40 @@ describe('company', () => {
 
           expect(actual).toBeTruthy();
           expect(faker.definitions.company.suffix).toEqual(actual);
+        });
+      });
+
+      describe('name()', () => {
+        it('should return a random company name', () => {
+          const actual = faker.company.name();
+
+          expect(actual).toBeTruthy();
+          expect(actual).toBeTypeOf('string');
+        });
+
+        it('should return a random company name with format 0', () => {
+          const actual = faker.company.name(0);
+
+          expect(actual).toBeTruthy();
+          expect(actual).toBeTypeOf('string');
+          expect(actual).includes(' ');
+        });
+
+        it('should return a random company name with format 1', () => {
+          const actual = faker.company.name(1);
+
+          expect(actual).toBeTruthy();
+          expect(actual).toBeTypeOf('string');
+          expect(actual).includes(' - ');
+        });
+
+        it('should return a random company name with format 2', () => {
+          const actual = faker.company.name(2);
+
+          expect(actual).toBeTruthy();
+          expect(actual).toBeTypeOf('string');
+          expect(actual).includes(', ');
+          expect(actual).includes(' and ');
         });
       });
 
