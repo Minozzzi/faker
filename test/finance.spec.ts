@@ -280,7 +280,7 @@ describe('finance', () => {
         });
       });
 
-      describe('bitcoinAddress()', () => {
+      describe.only('bitcoinAddress()', () => {
         it('should return a valid bitcoin address', () => {
           const bitcoinAddress = faker.finance.bitcoinAddress();
           /**
@@ -290,7 +290,7 @@ describe('finance', () => {
 
           expect(bitcoinAddress).toBeTruthy();
           expect(bitcoinAddress).toBeTypeOf('string');
-          expect(bitcoinAddress).toMatch(/^[13][a-km-zA-HJ-NP-Z1-9]{24,33}$/);
+          expect(bitcoinAddress).toMatch(/^[13][a-hj-zA-HJ-NP-Z1-9]{24,33}$/);
         });
       });
 
